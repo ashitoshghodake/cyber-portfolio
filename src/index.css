@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top, rgba(29, 233, 182, 0.06), transparent 22%),
+    linear-gradient(180deg, #04070d 0%, #07101d 50%, #04070d 100%);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(29, 233, 182, 0.2);
+  color: #ecfeff;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-white/10 bg-white/5 backdrop-blur-2xl;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center gap-2 rounded-full border border-cyber-400/30 bg-cyber-500/15 px-5 py-3 text-sm font-semibold text-cyber-300 shadow-glow transition duration-300 hover:-translate-y-0.5 hover:border-cyber-300/50 hover:bg-cyber-500/20 hover:text-white;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:border-cyber-500/40 hover:text-cyber-300;
+  }
+
+  .project-card {
+    @apply transition duration-300 hover:-translate-y-1 hover:border-cyber-500/30 hover:shadow-glow;
+  }
+
+  .contact-link {
+    @apply flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-4 text-slate-200 transition duration-300 hover:border-cyber-500/30 hover:text-cyber-300 hover:shadow-glow;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-slate-100 outline-none transition duration-300 placeholder:text-slate-500 focus:border-cyber-500/50 focus:shadow-glow;
+  }
+}
